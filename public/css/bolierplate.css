@@ -1,0 +1,283 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 100px;
+    position:sticky;
+    z-index: 1000;
+    top:0px;
+}
+
+.header_container .header_logo img{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin-right: 10%;
+} 
+.header_logo div{
+    text-decoration: none;
+    color: white;
+}
+
+.header_font div a:hover{
+    color:   #ff8965;
+}
+
+.header_btn{
+    height: 40px;
+    width: 100px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header_logo{
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.header_logo div{
+    margin: 0px 15px;
+}
+
+.header_font{
+    display: flex;
+}
+
+.header_font div{
+    margin:0px 15px;
+}
+
+.header_font div a{
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
+
+.header_login{
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.header_login div{
+    margin: 0px 15px;
+}
+
+/* Dropdown Styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 150px;
+    z-index: 1000;
+    color: black;
+    height:140px;
+    width: 300px;
+}
+
+.list{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dropdown-menu .list a div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 120px;
+    background-color: rgb(129, 134, 129);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.dropdown-menu .list div:hover{
+      background-color: rgb(94, 98, 94);
+}
+
+.dropdown-menu .list a{
+     color: white;
+     text-decoration: none;
+}
+
+.before_login{
+    height: 115px;
+    width: 150px;
+}
+
+.before_login  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 130px;
+    background-color: rgb(129, 134, 129);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.before_login div:hover{
+    background-color: rgb(94, 98, 94);
+}
+
+.before_login a{
+        text-decoration: none;
+        color: white;
+}
+
+/* Show dropdown when active */
+.show {
+    display: block;
+}
+
+
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* in-line-icon-messeage */
+.f1{
+    color: #fafafa;
+}
+
+.f2{
+    color: #fafafa;
+}
+
+.f3{
+    color: #fafafa;
+}
+.fa-square-envelope{
+    font-size: medium;
+    color: #fafafa;
+}
+
+.fa-phone{
+    font-size: medium;
+    color:#fafafa;
+}
+
+
+.fa-phone{
+    font-size: medium;
+    color:#fafafa;
+}
+/* social icon */
+.f4{
+    font-size:15px;
+}
+.fa-envelope{
+    font-size: 20px;
+    color:#fafafa;
+}
+
+.fa-instagram{
+    font-size: 20px;
+    color:#fafafa; 
+}
+
+.fa-twitter{
+    font-size: 20px;
+    color:#fafafa; 
+}
+
+.fa-google{
+    font-size: 18px;
+    color: #fafafa;
+}
+
+.fa-youtube{
+    font-size: 20px;
+    color: #fafafa;
+}
+
+/* after hover effect */
+.fa-envelope:hover{
+    font-size: 20px;
+    color: #846b37;
+}
+
+.fa-instagram:hover{
+    font-size: 20px;
+    color: #8f184a;
+}
+
+.fa-twitter:hover{
+    font-size: 20px;
+    color:#50b1c2;
+}
+
+.fa-google:hover{
+    font-size: 20px;
+    color:#24151594;
+}
+
+.fa-youtube:hover{
+    font-size: 20px;
+    color: #e10909;
+}
+
+a:hover{
+    color: #ff5722;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    right: 10px;
+    top: 60px;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 8px;
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: black;
+}

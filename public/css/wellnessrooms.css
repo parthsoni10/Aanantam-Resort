@@ -1,0 +1,50 @@
+#photo-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-left:140px;
+    margin-right: 0%;
+}
+img {
+    width: 28.5%;
+    height: auto;
+    margin: 10px;
+    border-radius: 8px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('images/bgi3.jpg');
+}
+.secondHeader {
+    background-color: #d7b369;
+    color: white;
+    /* max-height:50px ; */
+    height: 10vh;
+    text-align: center;
+}
+.secondHeader .nav-container {
+    display: inline-block;
+}
+.secondHeader nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.secondHeader nav ul li {
+    display: inline;
+    margin: 0 17px;
+}
+.secondHeader nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+.secondHeader nav{
+    margin-top: 3vh;
+
+}
+.secondHeader nav ul li a:hover {
+    text-decoration: underline;
+}

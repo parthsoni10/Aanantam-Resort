@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/addroom_admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="/admin">Dashboard</a></li>
+                <li><a href="/admin/user">Users</a></li>
+                <li><a href="/admin/payment">Payments</a></li>
+                <li><a href="/admin/room">Rooms</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h1>User Payments</h1>
+                <form method="get" action="/admin/payment/add"><button class="add-user">ADD PAYMENT</button></form>
+            </header>
+            <section class="recent-orders">
+                <h2>Recent Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Payment ID</th>
+                            <th>Customer</th>
+                            <th>Room</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let list of paymentlist){ %>
+                            <tr>
+                                <td><%= list._id %></td>
+                                <td><%= list.user.firstname %> <%= list.user.lastname %></td>
+                                <td><%= list.booking.type%></td>
+                                <td><%= list.booking.price%></td>
+                                <td style="display:flex;justify-content: space-around;">
+                                    <form method="post" action="/admin/payment?_method=DELETE">
+                                        <input type="hidden" name="id" value="<%= list._id %>">
+                                        <button type="submit" class="delete-btn">DELETE</button>
+                                    </form>
+                                </td>   
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="/js/addroom_admin.js"></script>
+</body>
+</html>

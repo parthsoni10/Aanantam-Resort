@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="/css/bookingdata.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script defer src="/js/bookingdata.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+          <h1>ANANTAM RESORT</h1>
+        </header>
+        <form class="pay-form">
+        <main>
+          <div class="booking-form">
+              <h1><%=list.title%></h1>
+            <div id="bookingForm">
+    
+                <div class="row1">
+                    <div class="form-group">
+                      <label for="checkin" >Check In</label>
+                      <input type="date" name="checkin" id="checkin" style="width:300px;"  required>
+                    </div>
+                    <div class="form-group">
+                      <label for="checkout" >Check Out</label>
+                      <input type="date" id="checkout" name="checkout" style="width: 200px;" required>
+                    </div>
+                </div>
+              
+            
+                <div class="row1">
+                  <div class="form-group">
+                    <label for="firstname">Guset Details</label>
+                    <input type="text" id="name" placeholder="First name" style="width: 250px;" value=<%=current.firstname%> required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastname">&nbsp;</label>
+                    <input type="text" id="lastname" placeholder="Last Name" value=<%=current.lastname%> style="width: 250px;" required>
+                  </div>
+          
+    
+                  <div class="form-group">
+                    <label for="adults" style="width: 130px;">Adult</label>
+                    <select id="adults" required style="height:50px;">
+                      <option value="1">1</option>
+                      <option value="2" selected>2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="children" style="width: 140px;">Child</label>
+                    <select id="children" style="height:50px;">
+                      <option value="0" selected>0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="row1">
+                  <div class="form-group">
+                    <label for="specialRequest">Special Request</label>
+                    <input type="text" id="specialRequest" placeholder="Special Request" style="width:400px;">
+                  </div>
+                  <div class="form-group">
+                    <label for="arrivalTime">Estimated Arrival Time</label>
+                    <select id="arrivalTime" style="width:390px;height:50px;">
+                      <option value="12:00 pm" selected>12:00 pm</option>
+                      <option value="1:00 pm">1:00 pm</option>
+                      <option value="2:00 pm">2:00 pm</option>
+                      <option value="1:00 pm">3:00 pm</option>
+                      <option value="2:00 pm">4:00 pm</option>
+                      <option value="1:00 pm">5:00 pm</option>
+                      <option value="2:00 pm">6:00 pm</option>
+                      <option value="1:00 pm">7:00 pm</option>
+                      <option value="2:00 pm">8:00 pm</option>
+                      <option value="1:00 pm">9:00 pm</option>
+                      <option value="2:00 pm">10:00 pm</option>
+                      <option value="1:00 pm">10:00 am</option>
+                      <option value="2:00 pm">11:00 am</option>
+                      <option value="1:00 pm">12:00 pm</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+          </div>  
+          
+          <div class="booking-details">
+              <div class="bookintitle">
+                  <h3>Booking Details</h3>
+                  <a href="/bookingpa ge"><button class="btn2"> < Book more</button></a>
+              </div>
+              <h3 style="margin-top: 10px;"><%=list.title%></h3>
+              <div style="margin-top: 0px;color:green;"><u><%=list.type%></u></div>
+    
+                <div class="row1">
+                <div class="form-group">
+                  <label for="checkin" >Check In</label>
+                  <input type="date" id="checkin2" style="width:190px;"  required>
+                </div>
+                <div class="form-group">
+                  <label for="checkout" >Check Out</label>
+                  <input type="date" id="checkout2" style="width:180px;" required>
+                </div>
+           </div>
+
+           <input type="hidden" name="bookingId" id="bookingId" value="<%= list._id %>">
+           <input type="hidden" name="userId" id="userId" value="<%=current._id %>">
+           <input type="hidden" name="room_no" id="room_no" value=<%=room_no%>>>
+          <div class="payment"> 
+                <div>
+                    <div>Room X <span id="selectedRoomsText">1</span></div>
+                    <div>Taxes(18%)</div>
+                  
+                </div>
+                <div>
+                    <input type="hidden" value="<%=list.price%>" id="amount">
+                    <div id="price1">INR <span id="id"><%=list.price+".00"%></span></div>
+                    <div id="price2"> </div>
+                  
+                </div>
+          </div>
+    
+        <hr>
+        <div class="payment" style="margin-top: 25px;">
+        <div>Sub Total</div>
+        <div id="price3"> </div>
+        </div>  
+        <button type="button" class="btn" id="payNow">Pay Now</button>
+
+          </div>
+    
+          <div class="secondsection">
+              <h3>Contact Details</h3>
+              <div class="row1">
+                  <div class="form-group">
+                    <label for="contactNo">Contact No</label>
+                    <input type="tel" id="phone" placeholder="+91"  value=<%=current.phone%> style="width:400px;height:50px;" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="example@email.com"  value=<%=current.email%>  style="width:390px;height:50px;" required>
+                  </div>
+                </div>
+           </div>
+       </main>
+      </form>
+      </div>
+      <div class="container footer">
+        <header style="height: 50px;">
+          
+        </header>  
+</body>
+</html>

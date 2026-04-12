@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anantam Resort</title>
+    <link rel="icon" type="image/x-icon" href="/image/logo3.jpg"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/bolierplate.css"/>
+</head>
+<body>
+ 
+    <header>
+        <div class="header_container">
+            <a href="/home" style="text-decoration: none;">    
+                <div class="header_logo">   
+                    <img src="/image/logo3.jpg" style="margin:0px;" alt="Anantam">
+                </div>
+            </a>
+    
+            <nav class="header_font">
+                <div><a href="/home">RESORT</a></div> 
+                <div><a href="/stay/room">STAY</a></div> 
+                <!-- <div><a href="/wellness/allphotos">WELLNESS</a></div>  -->
+                <div><a href="/packages/picnic">PACKAGE</a></div> 
+                <div><a href="/dining_cafeteria">DINING</a></div> 
+                <div><a href="/wedding&events_wedding">WEDDING & EVENT</a></div> 
+                <div><a href="/wellness/allphotos">GALLERY</a></div> 
+            </nav>
+    
+            <div class="header_login">
+                <div><a href="/bookingpage"><button id="booknow" class="header_btn">BOOK NOW</button></a></div>
+                <div id="user-icon" class="user-icon" style="cursor: pointer;">
+                    <i class="fa-solid fa-user fa-lg" ></i>
+                </div>
+            </div>
+    
+            <!-- Dropdown Menu -->
+             <% if(!current){%>
+                <div id="user-dropdown" class="dropdown-menu before_login">
+                        <a href="/signup"><div>Signup</div></a>
+                        <a href="/login"><div>Login</div></a>
+                </div>
+             <% } %>
+             <% if(current){%>
+                <div id="user-dropdown" class="dropdown-menu">
+                    <div style="margin-left: 100px;">Welcome!</div>
+                    <div style="display: flex;justify-content: center;margin-top: -10px;"><h1><%= current.firstname+" "+current.lastname %></h1></div>
+                    <div class="list">
+                        <a href="/logout"><div>Logout</div></a>
+                        <a href="/profile"><div>Profile</div></a>
+                    </div>
+                </div>
+             <% } %>
+            </div>
+        </div>
+    </header>
+     
+    <%- include("../views/flash.ejs")%> 
+    <div class="container">
+        <%-body%> 
+    </div>
+
+    <footer>
+        <div class="container1">
+            <p>ANATAM RESORT</p>
+            <p>Mahudi highway, pindarda village gandhinagar,gujrat 382610 </p><br>
+            <div class="font_in_line_icon">
+                <a href="inquiry@aanantam.com" class="f1"><i class="fa-solid fa-square-envelope"></i>&nbsp;info@Aanantam.com</a>
+                <a href="" class="f2"><i class="fa-solid fa-phone"></i>&nbsp;09687615514 | Ananatam Resort</a>
+                <a href="" class="f3"><i class="fa-solid fa-phone"></i>&nbsp;09687615514</a>
+            </div><br>
+            <div class="socialicon">
+                <p class="f4">GET IN TOUCH</p>
+                <a href="inquiry@aanantam.com"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://www.instagram.com/anantam_resort/?hl=en"><i class="fa-brands fa-instagram"></i></a>
+                <a href="/home"><i class="fa-brands fa-google"></i></a>
+                <a href="https://www.youtube.com/watch?v=Q-2mUArpnWw"><i class="fa-brands fa-youtube"></i></a>  
+        </div>
+    </footer>
+
+     <!-- Link JavaScript File -->
+     <script src="/js/boilerplate.js"></script>
+</body>
+</html>

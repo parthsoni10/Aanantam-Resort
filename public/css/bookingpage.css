@@ -1,0 +1,445 @@
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* Header */
+        .header_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            color: white;
+            width: 100%;
+            height: 100px;
+            position:sticky;
+            z-index: 1000;
+            top:0px;
+        }
+        
+        .header_container .header_logo img{
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            margin-right: 10%;
+        } 
+        .header_logo div{
+            text-decoration: none;
+            color: white;
+        }
+        
+        .header_font div a:hover{
+            color:   #ff8965;
+        }
+        
+        .header_btn{
+            height: 40px;
+            width: 100px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .header_logo{
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+        }
+        
+        .header_logo div{
+            margin: 0px 15px;
+        }
+        
+        .header_font{
+            display: flex;
+        }
+        
+        .header_font div{
+            margin:0px 15px;
+        }
+        
+        .header_font div a{
+            text-decoration: none;
+            color: white;
+        }
+        
+        .header_login{
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+        }
+        
+        .header_login div{
+            margin: 0px 15px;
+        }
+        
+        /* Dropdown Styling */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 80px;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            width: 150px;
+            z-index: 1000;
+            color: black;
+            height:175px;
+            width: 300px;
+        }
+        
+        .list{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        
+        .dropdown-menu .list a div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 120px;
+            background-color: rgb(129, 134, 129);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        
+        .dropdown-menu .list div:hover{
+              background-color: rgb(94, 98, 94);
+        }
+        
+        .dropdown-menu .list a{
+             color: white;
+             text-decoration: none;
+        }
+        
+        .before_login{
+            height: 115px;
+            width: 150px;
+        }
+        
+        .before_login  div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 130px;
+            background-color: rgb(129, 134, 129);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        
+        .before_login div:hover{
+            background-color: rgb(94, 98, 94);
+        }
+        
+        .before_login a{
+                text-decoration: none;
+                color: white;
+        }
+        /* Image Slider */
+        .slider {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider-navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-navigation button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Search Section */
+        .search-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 250px;
+            flex-wrap: wrap;
+        }
+        .search-section input, .search-section select {
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+        .search-section button {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .search-section button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Room Sections */
+        .room-section {
+            margin-top: 40px;
+            display: flex;
+            margin-bottom: 40px;
+        }
+        .room-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+         .room-section .room-image img{
+            width: 500px;
+            height: 350px;
+            margin-right: 50px;
+            cursor: pointer;
+        }
+
+        .room-details {
+            width: -100px;
+        }
+
+        .room-table {
+            width: 950px;
+            border-collapse: collapse;
+
+        }
+        .room-table th, .room-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ffffff;
+        }
+        .room-table th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .room-table td {
+            background-color: #ffffff;
+        }
+        .room-table td button {
+            align-items: center;
+            background-color: #ff4400;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .room-table td button:hover {
+            background-color: #34495e;
+        }
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* in-line-icon-messeage */
+.f1{
+    color: #fafafa;
+}
+
+.f2{
+    color: #fafafa;
+}
+
+.f3{
+    color: #fafafa;
+}
+.fa-square-envelope{
+    font-size: medium;
+    color: #fafafa;
+}
+
+.fa-phone{
+    font-size: medium;
+    color:#fafafa;
+}
+
+
+.fa-phone{
+    font-size: medium;
+    color:#fafafa;
+}
+/* social icon */
+.f4{
+    font-size:15px;
+}
+.fa-envelope{
+    font-size: 20px;
+    color:#fafafa;
+}
+
+.fa-instagram{
+    font-size: 20px;
+    color:#fafafa; 
+}
+
+.fa-twitter{
+    font-size: 20px;
+    color:#fafafa; 
+}
+
+.fa-google{
+    font-size: 18px;
+    color: #fafafa;
+}
+
+.fa-youtube{
+    font-size: 20px;
+    color: #fafafa;
+}
+
+/* after hover effect */
+.fa-envelope:hover{
+    font-size: 20px;
+    color: #846b37;
+}
+
+.fa-instagram:hover{
+    font-size: 20px;
+    color: #8f184a;
+}
+
+.fa-twitter:hover{
+    font-size: 20px;
+    color:#50b1c2;
+}
+
+.fa-google:hover{
+    font-size: 20px;
+    color:#24151594;
+}
+
+.fa-youtube:hover{
+    font-size: 20px;
+    color: #e10909;
+}
+
+.slider-bar{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 150px;
+    margin-right: 350px;
+    margin-bottom: -15px;
+    margin-top: 20px;
+}
+
+a:hover{
+    color: #ff5722;
+}
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .search-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .room-section {
+                flex-direction: column;
+            }
+            .room-table {
+                font-size: 14px;
+            }
+         }
+
+          .room-table td .roombtn{
+            border: 1px solid  #ff4400;
+            background-color: white;
+            color:  #ff4400;
+          }
+
+          .room-table td .roombtn:hover{
+            background-color: white;
+          }
+    
+          .slider {
+            position: relative;
+            width: 100%; /* Adjust based on your needs */
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .slider-navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        
+        .slider-navigation button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .room-table tbody tr:hover{
+            background-color: grey;
+        }
+
+      /* Optional styling for disabled room */
+  .disabled-room {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .selected-room {
+    font-weight: bold;
+    border-left: 4px solid green;
+  }
+        
+        

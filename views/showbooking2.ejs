@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <link rel="stylesheet" href="/css/showbooking2.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Booking Details</h1>
+
+        <% if (payments.length > 0) { %>
+            <div class="booking-container">
+                <% payments.forEach(payment => { %>
+                    <div class="booking-card">
+                        <h2>Guest Details</h2>
+                        <p><strong>Name:</strong> <%= payment.user.firstname %> <%= payment.user.lastname %></p>
+                        <p><strong>Email:</strong> <%= payment.user.email %></p>
+                        <p><strong>Phone:</strong> <%= payment.user.phone %></p>
+            
+                        <h2>Booking Details</h2>
+                        <p><strong>Check-in:</strong> <%= new Date(payment.checkIn).toISOString().split("T")[0] %></p>
+                        <p><strong>Check-out:</strong> <%= new Date(payment.checkOut).toISOString().split("T")[0] %></p>
+                        <p><strong>Room Type:</strong> <%= payment.booking.title %></p>
+                        <p><strong>Room No:</strong><%= payment.room_no%></p>
+                        <p><strong>Room Category:</strong> <%= payment.booking.type %></p>
+                        <p><strong>Arrival Time:</strong> <%= payment.arrivalTime %></p>
+            
+                        <h2>Payment Details</h2>
+                        <p><strong>Amount Paid:</strong> INR <%= payment.amount %></p>
+                        <p><strong>Payment ID:</strong> <%= payment.paymentId %></p>
+                        <p><strong>Order ID:</strong> <%= payment.orderId %></p>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No bookings found.</p>
+        <% } %>
+
+        <a href="/home">Home</a>
+    </div>
+
+</body>
+</html>

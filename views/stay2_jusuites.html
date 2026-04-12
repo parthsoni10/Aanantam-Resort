@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <title>Resort junior suites</title>
+    <style>
+        #photo-container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-left:140px;
+            margin-right: 0%;
+        }
+        img {
+            width: 28%;
+            height: auto;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+
+        }
+        .secondHeader {
+            background-color: #d7b369;
+            color: white;
+            /* max-height:50px ; */
+            height: 22vh;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .secondHeader .nav-container {
+            display: inline-block;
+        }
+        .secondHeader nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .secondHeader nav ul li {
+            display: inline;
+            margin: 0 17px;
+        }
+        .secondHeader nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .secondHeader nav{
+            margin-top: 6vh;
+
+        }
+        .secondHeader nav ul li a:hover {
+            text-decoration: underline;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .background {
+            background: url('images/room1.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/room1.jpg') no-repeat center center/cover;
+            opacity: 0.5;
+            z-index: 1;
+        }
+        .overlay-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 45px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .overlay-container img {
+            width:400px;
+            border-radius: 5px;
+        }
+        .content {
+            max-width: 400px;
+        }
+        .content h1 {
+            margin: 0 0 10px;
+            font-family: cursive;
+        }
+        .content p {
+            line-height: 1.6;
+            margin: 0;
+        }
+        .btn {
+             display: inline-block;
+             padding: 10px 20px;
+             background-color: black;
+             color: white;
+             text-align: center;
+             border-radius: 5px;
+             text-decoration: none;
+             font-size: 16px;
+             font-weight: bold;
+             transition: background-color 0.3s ease;
+             }
+
+        .btn:hover {
+          background-color:black;
+                   }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="images/logo3.jpg" alt="Anantam">
+                <p class="name">Anantam Resort</p>
+            </div>
+            <!-- Navigation -->
+            <nav class="font">
+                <ul>
+                    <li><a href="annatamresort.html">RESORT</a></li>
+                    <li><a href="stay2_rooms.html">STAY</a></li>
+                    <li><a href="wellnessthespa.html">WALLNESS</a></li>
+                    <li><a href="picnicpackage.html">PACKAGE</a></li>
+                    <li><a href="dining5_cafeteria.html">DAINING</a></li>
+                    <li><a href="Wedding& Events6_wedding.html">WEDDING & EVENT</a></li>
+                    <li><a href="allphotosgallary.html">GALLERY</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><button id="booknow">BOOK NOW </button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="secondHeader">
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="stay2_rooms.html">Rooms</a></li>
+                    <li><a href="stay2_chalet.html">Chalet</a></li>
+                    <li><a href="stay2_suites.html">Suites</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="background">
+        <div class="overlay-container">
+            <img src="images/room1.jpg" alt="Overlay Image">
+            <div class="content">
+                <h1>Junior Suites</h1>
+                <h3>(551 Sq.ft.)</h3>
+                <p>Whether you're celebrating a special occasion or want an extra space to stretch out, 
+                     Upgraded fixtures, exclusive artwork and richly textured fabrics make every suite feel special with a sofa cum bed,
+                      walk-in closet and a contemporary kitchen. enjoy a relaxing bath in the stylish bathroom’s soaking tub before getting into the cosy king-sized bed. </p>
+                     
+                      <a href="stay2_suites.html" class="btn">Suites</a>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <footer>
+        <div class="container1">
+            <p>ANATAM RESORT</p>
+            <p>Mahudi highway, pindarda village gandhinagar,gujrat 382610 </p><br>
+            <div class="font_in_line_icon">
+                <a href="" class="f1"><i class="fa-solid fa-square-envelope"></i>&nbsp;info@Aanantam.com</a>
+                <a href="" class="f2"><i class="fa-solid fa-phone"></i>&nbsp;09687615514 | Ananatam Resort</a>
+                <a href="" class="f3"><i class="fa-solid fa-phone"></i>&nbsp;09687615514</a>
+            </div><br>
+            <div class="socialicon">
+                <p class="f4">GET IN TOUCH</p>
+                <a href=""><i class="fa-regular fa-envelope"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </footer>
+
+
+</body>
+</html>

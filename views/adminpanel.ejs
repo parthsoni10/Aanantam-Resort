@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/adminpanel.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="/admin">Dashboard</a></li>
+                <li><a href="/admin/user">Users</a></li>
+                <li><a href="/admin/payment">Payments</a></li>
+                <li><a href="/admin/room">Rooms</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h1>Welcome, <%= current.firstname %></h1>
+                <form method="get" action="/logout"><button class="logout">LOG OUT</button></form>
+            </header>
+            <section class="stats">
+                <div class="    stat-box">Users <span><%=totalVisitors%></span></div>
+                <div class="stat-box">Booked <span>567</span></div>
+                <div class="stat-box">Revenue <span>50299</span></div>
+                <div class="stat-box">Rooms <span>100</span></div>
+            </section>  
+            <section class="recent-orders">
+                <h2>Recent Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Status</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>67ecfe7fdc7e3498cea4d34e</td>
+                            <td>parth soni</td>
+                            <td>Completed</td>
+                            <td>12999</td>   
+                        </tr>
+                        <tr>
+                            <td>67fd72948d0c7df7fac05229</td>
+                            <td>ashok parajapat</td>
+                            <td>Pending</td>
+                            <td>2999</td>
+                        </tr>
+                        <tr>
+                            <td>67fd7705a3601c657bbd37fa</td>
+                            <td>dhruv munjpara</td>
+                            <td>Cancelled</td>
+                            <td>5999</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="/js/adminpanel.js"></script>
+</body>
+</html>

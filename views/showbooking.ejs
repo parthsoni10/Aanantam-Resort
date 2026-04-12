@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <link rel="stylesheet" href="/css/showbooking2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Details</h1>
+            <div class="booking-container">
+                    <div class="booking-card">
+                        <h2>Guest Details</h2>
+                        <p><strong>Name:</strong> <%= payment.user.firstname %> <%= payment.user.lastname %></p>
+                        <p><strong>Email:</strong> <%= payment.user.email %></p>
+                        <p><strong>Phone:</strong> <%= payment.user.phone %></p>
+            
+                        <h2>Booking Details</h2>
+                        <p><strong>Check-in:</strong> <%= new Date(payment.checkIn).toISOString().split("T")[0] %></p>
+                        <p><strong>Check-out:</strong> <%= new Date(payment.checkOut).toISOString().split("T")[0] %></p>
+                        <p><strong>Room Type:</strong> <%= payment.booking.title %></p>
+                        <p><strong>Room Category:</strong> <%= payment.booking.type %></p>
+                        <p>Room Number: <%= payment.room_no %></p>  <!-- Added Room Number -->
+                        <p><strong>Arrival Time:</strong> <%= payment.arrivalTime %></p>
+            
+                        <h2>Payment Details</h2>
+                        <p><strong>Amount Paid:</strong> INR <%= payment.amount %></p>
+                        <p><strong>Payment ID:</strong> <%= payment.paymentId %></p>
+                        <p><strong>Order ID:</strong> <%= payment.orderId %></p>
+                    </div>
+            </div>  
+            <a href="/home">Home</a>
+    <script>
+        async function saveBookingDetails() {
+            const bookingData = {
+                userId: "<%= payment.user._id %>",
+                bookingId: "<%= payment.booking._id %>",
+                paymentId: "<%= payment.paymentId %>",
+                orderId: "<%= payment.orderId %>",
+                amount: "<%= payment.amount %>",
+                currency: "INR",
+                checkIn: "<%= payment.checkIn %>",
+                checkOut: "<%= payment.checkOut %>",
+                roomTitle: "<%= payment.booking.title %>",
+                roomType: "<%= payment.booking.type %>",
+                roomNo: "<%= payment.room_no %>",  // Added Room Number
+                arrivalTime: "<%= payment.arrivalTime %>",  // Added Arrival Time
+            };
+    
+            try {
+                const response = await fetch("/api/save-booking", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(bookingData)
+                });
+    
+                const result = await response.json();
+                console.log("✅ Booking Saved:", result);
+            } catch (error) {
+                console.error("❌ Error saving booking:", error);
+            }
+        }
+    
+        // Call function when the page loads
+        window.onload = saveBookingDetails;
+    </script>    
+</body>
+</html>

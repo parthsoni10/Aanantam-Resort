@@ -1,0 +1,53 @@
+<% if(success && success.length){ %>
+    <div class="popup success" style="display: flex;
+                justify-content: space-between;
+                width: 600px;
+                align-items: center;
+                background-color: rgb(198, 255, 236);
+                height: 60px;
+                position: absolute;
+                top: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 1000;">
+        <div style="margin-left: 20px;"><%= success %></div>
+        <div style="margin-right: 20px;">
+            <i class="fa-solid fa-xmark close-icon fa-lg" style="cursor: pointer;"></i>
+        </div>
+    </div>
+<% } %>
+
+<% if(error && error.length){ %>
+    <div class="popup error" style="display: flex;
+                justify-content: space-between;
+                width: 600px;
+                align-items: center;
+                background-color: rgb(255, 175, 175);
+                height: 60px;
+                position: absolute;
+                top: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 1000;">
+        <div style="margin-left: 20px;"><%= error %></div>
+        <div style="margin-right: 20px;">
+            <i class="fa-solid fa-xmark close-icon fa-lg" style="cursor: pointer;"></i>
+        </div>
+    </div>
+<% } %>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".close-icon").forEach(icon => {
+            icon.addEventListener("click", function() {
+                this.closest(".popup").remove();
+            });
+        });
+    });
+</script>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resort Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bookingpage.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    
+    <header>
+        <div class="header_container">
+            <a href="/home" style="text-decoration: none;">    
+                <div class="header_logo">   
+                    <img src="/image/logo3.jpg" style="margin:0px;" alt="Anantam">
+                </div>
+            </a>
+    
+            <nav class="header_font">
+                <div><a href="/home">RESORT</a></div> 
+                <div><a href="/stay/room">STAY</a></div> 
+                <div><a href="/wellness/allphotos">WALLNESS</a></div> 
+                <div><a href="/packages/picnic">PACKAGE</a></div> 
+                <div><a href="/dining_cafeteria">DAINING</a></div> 
+                <div><a href="/wedding&events_wedding">WEDDING & EVENT</a></div> 
+            </nav>
+    
+            <div class="header_login">
+                <div><a href="/bookingpage"><button id="booknow" style="font-size: 13px;" class="header_btn">BOOK NOW</button></a></div>
+                <div id="user-icon" class="user-icon" style="cursor: pointer;">
+                    <i class="fa-solid fa-user fa-lg" ></i>
+                </div>
+            </div>
+                
+            <!-- Dropdown Menu -->
+             <% if(!current){%>
+                <div id="user-dropdown" class="dropdown-menu before_login">
+                        <a href="/signup"><div>Signup</div></a>
+                        <a href="/login"><div>Login</div></a>
+                </div>
+             <% } %>
+             <% if(current){%>
+                <div id="user-dropdown" class="dropdown-menu">
+                    <div style="margin-left: 100px;">Welcome!</div>
+                    <div style="display: flex;justify-content: center;margin-top: -10px;"><h1><%= current.firstname+" "+current.lastname %></h1></div>
+                    <div class="list">
+                        <a href="/logout"><div>Logout</div></a>
+                        <a href="/profile"><div>Profile</div></a>
+                    </div>
+                </div>
+             <% } %>
+            </div>
+        </div>
+    </header>
+
+<div class="slider">
+    <img id="slider-image" src="/image/r1.JPG" alt="Resort Image">
+    <div class="slider-navigation">
+        <button onclick="prevSlide()" style="background-color: transparent;"></button>
+        <button onclick="nextSlide()" style="background-color: transparent;"  ></button>
+    </div>
+</div>
+<!-- 
+<hr>
+Room Sections -->
+<!-- Superior Room Section -->
+<div class="room-section">
+    <div class="room-image">
+      <img src="/image/6.jpg" alt="Superior Room">
+    </div>
+    <div class="room-details">
+      <h2><%= list[0].title %></h2>
+      <div>
+        Our Superior Rooms offer the perfect blend of comfort and elegance, designed for a relaxing stay...
+      </div>
+      <br>
+      <table class="room-table">
+        <tbody>
+          <% for (let i = 0; i <= 20; i += 5) { %>
+            <tr>
+              <td><%= list[i].type %></td>
+              <td>2 &nbsp;<i class="fa-regular fa-user"></i></td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle roombtn" type="button" data-bs-toggle="dropdown">
+                    Select Room
+                  </button>
+                  <ul class="dropdown-menu">
+                    <% for (let j = 0; j < 5; j++) {
+                      const room = list[i + j];
+                      if (!room) continue;
+                    %>
+                      <li>
+                        <% if (room.state) { %>
+                          <a class="dropdown-item room-option" href="#" data-price="<%= room.price %>" data-rooms="<%= room.room_no %>">
+                            Room <%= room.room_no %>
+                          </a>
+                        <% } else { %>
+                          <span class="dropdown-item text-muted disabled" style="pointer-events: none; opacity: 0.5;">
+                            Room <%= room.room_no %> (Unavailable)
+                          </span>
+                        <% } %>
+                      </li>
+                    <% } %>
+                  </ul>
+                </div>
+              </td>
+              <td>INR <span class="room-price"><%= list[i].price %></span></td>
+              <td>
+                <form method="get" action="/bookingdata/<%= list[i]._id %>">
+                  <input type="hidden" name="selectedRooms" value="1">
+                  <input type="hidden" name="totalPrice" value="<%= list[i].price %>">
+                  <button type="submit">Book Now</button>
+                </form>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <!-- Premium Room Section -->
+  <div class="room-section">
+    <div class="room-image">
+      <img src="/image/room1.jpg" alt="Premium Room">
+    </div>
+    <div class="room-details">
+      <h2>Premium Room</h2>
+      <div>
+        Our Premium Rooms offer an elevated stay with sophisticated design and top-tier comfort...
+      </div>
+      <br>
+      <table class="room-table">
+        <tbody>
+          <% for (let i = 25; i <= 45; i += 5) { %>
+            <tr>
+              <td><%= list[i].type %></td>
+              <td>2 &nbsp;<i class="fa-regular fa-user"></i></td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle roombtn" type="button" data-bs-toggle="dropdown">
+                    Select Room
+                  </button>
+                  <ul class="dropdown-menu">
+                    <% for (let j = 0; j < 5; j++) {
+                      const room = list[i + j];
+                      if (!room) continue;
+                    %>
+                      <li>
+                        <% if (room.state) { %>
+                          <a class="dropdown-item room-option" href="#" data-price="<%= room.price %>" data-rooms="<%= room.room_no %>">
+                            Room <%= room.room_no %>
+                          </a>
+                        <% } else { %>
+                          <span class="dropdown-item text-muted disabled" style="pointer-events: none; opacity: 0.5;">
+                            Room <%= room.room_no %> (Unavailable)
+                          </span>
+                        <% } %>
+                      </li>
+                    <% } %>
+                  </ul>
+                </div>
+              </td>
+              <td>INR <span class="room-price"><%= list[i].price %></span></td>
+              <td>
+                <form method="get" action="/bookingdata/<%= list[i]._id %>">
+                  <input type="hidden" name="selectedRooms" value="1">
+                  <input type="hidden" name="totalPrice" value="<%= list[i].price %>">
+                  <button type="submit">Book Now</button>
+                </form>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <!-- Chalet Room Section -->
+  <div class="room-section">
+    <div class="room-image">
+      <img src="/image/r3.JPG" alt="Chalet">
+    </div>
+    <div class="room-details">
+      <h2>Chalet Rooms</h2>
+      <div>
+        Our Chalet Rooms offer a cozy retreat amidst nature, combining rustic charm with modern comfort...
+      </div>
+      <br>
+      <table class="room-table">
+        <tbody>
+          <% for (let i = 50; i <= 70; i += 5) { %>
+            <tr>
+              <td><%= list[i].type %></td>
+              <td>2 &nbsp;<i class="fa-regular fa-user"></i></td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle roombtn" type="button" data-bs-toggle="dropdown">
+                    Select Room
+                  </button>
+                  <ul class="dropdown-menu">
+                    <% for (let j = 0; j < 5; j++) {
+                      const room = list[i + j];
+                      if (!room) continue;
+                    %>
+                      <li>
+                        <% if (room.state) { %>
+                          <a class="dropdown-item room-option" href="#" data-price="<%= room.price %>" data-rooms="<%= room.room_no %>">
+                            Room <%= room.room_no %>
+                          </a>
+                        <% } else { %>
+                          <span class="dropdown-item text-muted disabled" style="pointer-events: none; opacity: 0.5;">
+                            Room <%= room.room_no %> (Unavailable)
+                          </span>
+                        <% } %>
+                      </li>
+                    <% } %>
+                  </ul>
+                </div>
+              </td>
+              <td>INR <span class="room-price"><%= list[i].price %></span></td>
+              <td>
+                <form method="get" action="/bookingdata/<%= list[i]._id %>">
+                  <input type="hidden" name="selectedRooms" value="1">
+                  <input type="hidden" name="totalPrice" value="<%= list[i].price %>">
+                  <button type="submit">Book Now</button>
+                </form>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="room-section">
+    <div class="room-image">
+        <img src="/image/r7.JPG" alt="Chalet Grandeur">
+    </div>
+    <div class="room-details">
+        <h2>Chalet Grandeur</h2>
+        <div>Our Chalet Grandeur offers an exquisite blend of luxury and nature, perfect for an indulgent getaway.
+             These elegantly designed chalets feature spacious interiors,plush bedding, and a private balcony with breathtaking views. 
+             Enjoy top-tier amenities, including high-speed Wi-Fi, a smart TV, and a well-stocked minibar.
+             The lavish en-suite bathroom boasts premium toiletries and a rejuvenating rain shower. Ideal for those seeking exclusivity and comfort,
+             Chalet Grandeur ensures a truly serene and opulent retreat.</div><br>
+       
+             <table class="room-table">
+              <tbody>
+                  <tr>
+                      <td><%= list[75].type %></td>
+                      <td>2 &nbsp;<i class="fa-regular fa-user"></a></td>
+                      <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle roombtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Select Rooms
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item room-option" href="#" data-price="<%= list[75].price %>" data-rooms="1">Room 1</a></li>
+                                <li><a class="dropdown-item room-option" href="#" data-price="<%= list[76].price %>" data-rooms="2">Room 2</a></li>
+                                <li><a class="dropdown-item room-option" href="#" data-price="<%= list[77].price %>" data-rooms="3">Room 3</a></li>
+                                <li><a class="dropdown-item room-option" href="#" data-price="<%= list[78].price %>" data-rooms="4">Room 4</a></li>
+                                <li><a class="dropdown-item room-option" href="#" data-price="<%= list[79].price %>" data-rooms="5">Room 5</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>INR <span class="room-price"><%= list[75].price %></span></td>
+                    <td>
+                        <form method="get" action="/bookingdata/<%= list[75]._id %>">
+                            <input type="hidden" name="selectedRooms" id="selectedRooms" value="1">
+                            <input type="hidden" name="totalPrice" id="totalPrice" value="<%= list[75].price %>">
+                            <button type="submit">Book Now</button>
+                        </form>
+                    </td>
+                    
+                  </tr>
+                 
+                  <tr>
+                    <td><%= list[80].type %></td>
+                    <td>2 &nbsp;<i class="fa-regular fa-user"></a></td>
+                    <td>
+                      <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle roombtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Select Rooms
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[80].price %>" data-rooms="1">Room 1</a></li>
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[81].price %>" data-rooms="2">Room 2</a></li>
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[82].price %>" data-rooms="3">Room 3</a></li>
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[83].price %>" data-rooms="4">Room 4</a></li>
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[84].price %>" data-rooms="5">Room 5</a></li>
+                          </ul>
+                      </div>
+                  </td>
+                  <td>INR <span class="room-price"><%= list[80].price %></span></td>
+                  <td>
+                      <form method="get" action="/bookingdata/<%= list[80]._id %>">
+                          <input type="hidden" name="selectedRooms" id="selectedRooms" value="1">
+                          <input type="hidden" name="totalPrice" id="totalPrice" value="<%= list[80].price %>">
+                          <button type="submit">Book Now</button>
+                      </form>
+                  </td>
+                  
+                  <tr>
+                    <td><%= list[85].type %></td>
+                    <td>2 &nbsp;<i class="fa-regular fa-user"></a></td>
+                    <td>
+                      <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle roombtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Select Rooms
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[85].price %>" data-rooms="1">Room 1</a></li>
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[86].price %>" data-rooms="2">Room 2</a></li>
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[87].price %>" data-rooms="3">Room 3</a></li>
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[88].price %>" data-rooms="4">Room 4</a></li>
+                              <li><a class="dropdown-item room-option" href="#" data-price="<%= list[89].price %>" data-rooms="5">Room 5</a></li>
+                          </ul>
+                      </div>
+                  </td>
+                  <td>INR <span class="room-price"><%= list[85].price %></span></td>
+                  <td>
+                      <form method="get" action="/bookingdata/<%= list[85]._id %>">
+                          <input type="hidden" name="selectedRooms" id="selectedRooms" value="1">
+                          <input type="hidden" name="totalPrice" id="totalPrice" value="<%= list[85].price %>">
+                          <button type="submit">Book Now</button>
+                      </form>
+                  </td>
+                  
+                </tr>
+  
+                <tr>
+                  <td><%= list[90].type %></td>
+                  <td>2 &nbsp;<i class="fa-regular fa-user"></a></td>
+                  <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle roombtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Select Rooms
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[90].price %>" data-rooms="1">Room 1</a></li>
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[91].price %>" data-rooms="2">Room 2</a></li>
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[92].price %>" data-rooms="3">Room 3</a></li>
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[93].price %>" data-rooms="4">Room 4</a></li>
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[94].price %>" data-rooms="5">Room 5</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>INR <span class="room-price"><%= list[90].price %></span></td>
+                <td>
+                    <form method="get" action="/bookingdata/<%= list[90]._id %>">
+                        <input type="hidden" name="selectedRooms" id="selectedRooms" value="1">
+                        <input type="hidden" name="totalPrice" id="totalPrice" value="<%= list[90].price %>">
+                        <button type="submit">Book Now</button>
+                    </form>
+                </td>
+              
+                <tr>
+                  <td><%= list[95].type %></td>
+                  <td>2 &nbsp;<i class="fa-regular fa-user"></a></td>
+                  <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle roombtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Select Rooms
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[95].price %>" data-rooms="1">Room 1</a></li>
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[96].price %>" data-rooms="2">Room 2</a></li>
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[97].price %>" data-rooms="3">Room 3</a></li>
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[98].price %>" data-rooms="4">Room 4</a></li>
+                            <li><a class="dropdown-item room-option" href="#" data-price="<%= list[99].price %>" data-rooms="5">Room 5</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>INR <span class="room-price"><%= list[95].price %></span></td>
+                <td>
+                    <form method="get" action="/bookingdata/<%= list[95]._id %>">
+                        <input type="hidden" name="selectedRooms" id="selectedRooms" value="1">
+                        <input type="hidden" name="totalPrice" id="totalPrice" value="<%= list[95].price %>">
+                        <button type="submit">Book Now</button>
+                    </form>
+                </td>
+                
+              </tr>
+  
+              </tbody>
+          </table>
+    </div>
+</div> 
+
+<!-- footer on this web page -->
+<footer>
+    <div class="container1">
+        <p>ANATAM RESORT</p>
+        <p>Mahudi highway, pindarda village gandhinagar,gujrat 382610 </p><br>
+        <div class="font_in_line_icon">
+            <a href="" class="f1"><i class="fa-solid fa-square-envelope   "></i>&nbsp;info@Aanantam.com</a>
+            <a href="" class="f2"><i class="fa-solid fa-phone"></i>&nbsp;09687615514 | Ananatam Resort</a>
+            <a href="" class="f3"><i class="fa-solid fa-phone"></i>&nbsp;09687615514</a>
+        </div><br>
+        <div class="socialicon">
+            <p class="f4">GET IN TOUCH</p>
+            <a href=""><i class="fa-regular fa-envelope"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-google"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="/js/roomSelection.js"></script>
+<script src="/js/bookingpage.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+
+        #photo-container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-left:140px;
+            margin-right: 0%;
+        }
+        img {
+            width: 20%;
+            height: auto;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/image/room1.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 135vh;
+        }
+
+        .content-container {
+            background-color:rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 900px;
+            width: 200%;
+            height: 95%;
+        }
+
+        .top-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-section img {
+            width: 390px;
+            height: 333px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .top-section .text-content {
+            flex: 1;
+        }
+
+        .text-content h1 {
+            margin: 0 0 10px;
+            font-size: 2em;
+            color: #333;
+        }
+
+        .text-content p {
+            margin: 0;
+            color: #555;
+            font-size: 1em;
+        }
+
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bottom-section .image-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bottom-section .image-box img {
+            width: 250px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .bottom-section .image-box h1 {
+            margin: 0;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .bottom-section .image-box p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #555;
+            text-align: center;
+            text-justify: newspaper;
+        }
+        .image-box button{
+            display: inline-block;
+             padding: 10px 20px;
+             background-color: black;
+             color: white;
+             text-align: center;
+             border-radius: 5px;
+             text-decoration: none;
+             font-size: 16px;
+             font-weight: bold;
+             transition: background-color 0.3s ease;
+             cursor: pointer;
+            }
+            
+        .secondHeader {
+            background-color: #d7b369;
+            color: white;
+            /* max-height:50px ; */
+            height: 10vh;
+            padding: 0rem 0;
+            text-align: center;
+        }
+        .secondHeader .nav-container {
+            display: inline-block;
+        }
+        .secondHeader nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .secondHeader nav ul li {
+            display: inline;
+            margin: 0 17px;
+        }
+        .secondHeader nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .secondHeader nav{
+            margin-top: 3vh;
+
+        }
+        .secondHeader nav ul li a:hover {
+            text-decoration: underline;
+        }
+    

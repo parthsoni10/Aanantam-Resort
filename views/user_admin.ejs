@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/user_admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="/admin">Dashboard</a></li>
+                <li><a href="/admin/user">Users</a></li>
+                <li><a href="/admin/payment">Payments</a></li>
+                <li><a href="/admin/room">Rooms</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h1>Users Management</h1>
+                <form method="get" action="/admin/adduser"><button class="add-user">ADD USER</button></form>
+            </header>
+            <section class="user-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone No.</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let list of userlist){ %>
+                        <tr>
+                            <td><%= list._id %></td>
+                            <td><%= list.username %></td>
+                            <td><%= list.firstname+" "+list.lastname %></td>
+                            <td><%= list.email%></td>
+                            <td><%= list.phone%></td>
+                            <td style="display:flex;justify-content: space-around;">
+                                <form method="get" action="/admin/edit/<%= list._id %>">
+                                    <button class="edit-btn">EDIT</button>
+                                </form>
+                                <form method="post" action="/admin/user?_method=DELETE">
+                                    <input type="hidden" name="id" value="<%= list._id %>">
+                                    <button type="submit" class="delete-btn">DELETE</button>
+                                </form>
+                                
+                            </td>   
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="/js/user_admin.js"></script>
+</body>
+</html>

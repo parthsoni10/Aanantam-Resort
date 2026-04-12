@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/addroom_admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="/admin">Dashboard</a></li>
+                <li><a href="/admin/user">Users</a></li>
+                <li><a href="/admin/payment">Payments</a></li>
+                <li><a href="/admin/room">Rooms</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h1>Rooms</h1>
+               
+            </header>
+            <section class="book-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>State</th>
+                            <th>Room No.</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(lists of list){%>
+                        <tr>
+                            <td><%= lists._id %></td>
+                            <td><%= lists.title%></td>
+                            <td><%= lists.type %></td>
+                            <td><%= lists.price %></td>
+                            <td><%= lists.state %></td>
+                            <td><%= lists.room_no %></td>
+                            <td style="display:flex;justify-content: space-around;">
+                                <form method="get" action="/admin/edit_room/<%= list._id %>">
+                                    <button class="edit-btn">EDIT</button>
+                                </form>
+                                <form method="post" action="/admin/room?_method=DELETE">
+                                    <input type="hidden" name="id" value="<%= list._id %>">
+                                    <button type="submit" class="delete-btn">DELETE</button>
+                                </form>
+                                
+                            </td>  
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="/js/addroom_admin.js"></script>
+</body>
+</html>
