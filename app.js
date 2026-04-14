@@ -118,7 +118,7 @@ app.post("/login", passport.authenticate("local", {
 });
 
 // All routes ::
-app.get("/", (req, res) => { res.send("working"); });
+app.get("/", (req, res) => { res.redirect('/home'); });
 app.get("/home", (req, res) => { res.render("annatamresort.ejs") });
 app.get("/stay/room", (req, res) => { res.render("stay2_rooms.ejs") });
 app.get("/stay/chalet", (req, res) => { res.render("stay2_chalet.ejs"); });
